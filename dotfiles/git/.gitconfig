@@ -1,0 +1,5 @@
+[user]
+    name = Rick Button
+    email = rick@button.dev
+[push]
+    default = simple
