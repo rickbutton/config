@@ -23,6 +23,7 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i yubikey-personalization-gui
 
     i-snap tusk
+    i-snap discord
 
     i alacritty
 

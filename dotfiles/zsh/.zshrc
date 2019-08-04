@@ -18,3 +18,8 @@ source $HOME/.cargo/env
 
 compinit
 
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+export VISUAL="vim"
+export EDITOR="vim"
