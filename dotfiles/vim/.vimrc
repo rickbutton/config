@@ -10,6 +10,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'tomasiser/vim-code-dark'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sleuth'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 syntax enable
