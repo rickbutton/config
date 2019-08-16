@@ -66,6 +66,7 @@ i vim
 i nodejs
 i cmake
 i racket
+i cloc
 
 FZF_DIR=~/.fzf
 if [ ! -d $FZF_DIR ]; then
