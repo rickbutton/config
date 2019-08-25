@@ -13,6 +13,10 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'justinmk/vim-sneak'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dhruvasagar/vim-zoom'
 call plug#end()
 
 syntax enable
@@ -60,6 +64,12 @@ endif
 
 colorscheme codedark
 let g:lightline = {
+    \ 'active': {
+    \    'left': [['mode', 'paste'], ['readonly', 'filename', 'modified', 'zoom']]
+    \ },
+    \ 'component': {
+    \    'zoom': '%{zoom#statusline()}'
+    \ },
     \ 'colorscheme': 'wombat',
     \ }
 set background=dark
