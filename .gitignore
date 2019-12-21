@@ -2,3 +2,4 @@
 *.swo
 .confighost
 .uuid
+bin/nvim.appimage

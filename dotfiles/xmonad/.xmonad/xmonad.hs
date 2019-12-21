@@ -8,21 +8,39 @@ import XMonad.Util.SpawnOnce
 import XMonad.Actions.SpawnOn
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
+import XMonad.Layout.Spacing
+import XMonad.Layout.TwoPane
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Named
+import XMonad.Layout.NoBorders
+
+myLayout = avoidStruts $
+        tiled
+    ||| mirror
+    ||| full
+  where
+      tiled = named "tall" $ spacing gap $ ResizableTall nmaster delta ratio []
+      mirror = named "mirror" $ Mirror $ spacing gap $ ResizableTall nmaster delta ratio []
+      full = noBorders $ named "full" $ Full
+      nmaster = 1
+      ratio = 1/2
+      delta = 3/100
+      gap = 3
 
 main = do
     xmproc <- spawnPipe "xmobar"
 
     xmonad $ docks defaultConfig
         { manageHook = manageSpawn <+> manageDocks <+> manageHook defaultConfig
-        , focusedBorderColor = "#00FF00"
+        , focusedBorderColor = "#FFFFFF"
         , normalBorderColor = "#000000"
         , borderWidth = 2
         , terminal = "alacritty"
-        , workspaces = ["1", "2", "3", "4", "5", "6"]
+        , workspaces = ["one", "two", "three", "four", "five", "six"]
         , startupHook = spawnHere "stanlonetray"
                      >> spawnHere "nm-applet"
                      >> spawnHere "feh --bg-scale ~/.xmonad/background.jpg"
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , layoutHook = myLayout
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50

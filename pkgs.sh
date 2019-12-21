@@ -28,6 +28,8 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i alacritty
 
     # display/window management
+    i arandr
+    i autorandr
     i xmonad
     i xmobar
     i stalonetray
@@ -37,12 +39,10 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i lxappearance
 fi
 
-i-apt-key "https://api.bintray.com/orgs/gopasspw/keys/gpg/public.key" "gopass"
 i-apt-key "https://dev.nodesource.com/gpgkey/nodesource.gpg.key" "nodesource"
 
 # ppas
 i-ppa "plt/racket"
-i-deb "https://dl.bintray.com/gopasspw/gopass trusty main"
 i-deb-src "https://deb.nodesource.com/node_12.x bionic main"
 
 # user utils
@@ -54,13 +54,18 @@ i tree
 i git
 i gnupg2
 i scdaemon
-i gopass
 
 # shell/editor
 i zsh
 i xclip
 i tmux
-i vim
+r vim
+i python-neovim
+i python3-neovim
+i python-dev
+i python-pip
+i python3-dev
+i python3-pip
 
 # dev env
 i nodejs
@@ -94,4 +99,17 @@ if [ $(dpkg-count ripgrep) -eq 0 ]; then
     curl -LO $RIPGREP_URL
     sudo dpkg -i $RIPGREP_DPKG
     rm $RIPGREP_DPKG
+fi
+
+NVIM_PATH=~/local/bin/nvim
+if [ ! -f $NVIM_PATH ]; then
+    curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage > $NVIM_PATH
+    chmod +x $NVIM_PATH
+fi
+
+INKDROP_URL="https://api.inkdrop.app/download/linux/deb"
+if [ $(dpkg-count inkdrop) -eq 0 ]; then
+    curl -L $INKDROP_URL -o inkdrop.deb
+    sudo dpkg -i inkdrop.deb
+    rm inkdrop.deb
 fi

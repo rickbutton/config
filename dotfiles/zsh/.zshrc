@@ -4,7 +4,7 @@ ZSH_THEME="robbyrussell"
 ZSH_CUSTOM=~/config/zshcustom
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --ignore --follow --glob "!.git/*"'
 export FZF_BASE=~/.fzf
 
 plugins=(git gopass fzf)
@@ -23,3 +23,8 @@ gpgconf --launch gpg-agent
 
 export VISUAL="vim"
 export EDITOR="vim"
+
+alias vim=nvim
+alias vimrc="vim ~/.vimrc"
+
+PATH=~/.npmlocal/bin:$PATH
