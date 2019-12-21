@@ -8,6 +8,7 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i-ppa "3v1n0/libfprint-vfs0090"
     i-ppa "yubico/stable"
     i-ppa "mmstick76/alacritty"
+    i-ppa "plt/racket"
 
     # thinkpad specific
     i tlp
@@ -26,6 +27,7 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i-snap discord
 
     i alacritty
+    i racket
 
     # display/window management
     i arandr
@@ -39,12 +41,6 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i lxappearance
 fi
 
-i-apt-key "https://dev.nodesource.com/gpgkey/nodesource.gpg.key" "nodesource"
-
-# ppas
-i-ppa "plt/racket"
-i-deb-src "https://deb.nodesource.com/node_12.x bionic main"
-
 # user utils
 i stow
 i curl
@@ -53,7 +49,7 @@ i htop
 i tree
 i git
 i gnupg2
-i scdaemon
+i scdaemon # smartcards
 
 # shell/editor
 i zsh
@@ -68,9 +64,7 @@ i python3-dev
 i python3-pip
 
 # dev env
-i nodejs
 i cmake
-i racket
 i cloc
 
 FZF_DIR=~/.fzf
@@ -89,7 +83,6 @@ if [ ! -d $OH_MY_ZSH_DIR ]; then
         mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
     fi
 fi
-
 
 RIPGREP_VERSION="11.0.1"
 RIPGREP_DPKG="ripgrep_11.0.1_amd64.deb"

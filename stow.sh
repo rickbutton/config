@@ -18,6 +18,7 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     dot fonts
     dot gtk
 fi
+# todo, work dotfiles
 
 dot tmux
 dot vim
