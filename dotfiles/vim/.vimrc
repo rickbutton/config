@@ -1,5 +1,5 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -41,12 +41,13 @@ set incsearch
 set hlsearch
 set laststatus=2
 set noshowmode
-" turn off search highlight
-nnoremap <leader>/ :nohlsearch<CR>
+set mouse=ar
 
 if !has('nvim')
     set esckeys
 endif
+
+let g:javascript_plugin_flow = 1
 
 let mapleader=" "
 
@@ -60,7 +61,8 @@ set splitright
 
 " file management
 nnoremap <C-p> :Files<cr>
-nnoremap <C-o> :NERDTreeToggle<cr>
+nnoremap <C-o> :Rg<cr>
+nnoremap <C-i> :NERDTreeToggle<cr>
 
 " allows cursor change in tmux mode
 if exists('$TMUX')
@@ -139,11 +141,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-nmap <leader>rn <Plug>(coc-rename)
-
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 augroup mygroup
     autocmd!
     " Setup formatexpr specified filetype(s).
@@ -156,17 +153,28 @@ function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
+nmap <leader>sp :<C-u>sp<CR>
+nmap <leader>vs :<C-u>vs<CR>
+
 nmap <leader>aa <Plug>(coc-codeaction)
 nmap <leader>af <Plug>(coc-fix-current)
 nmap <leader>aj :<C-u>CocNext<CR>
 nmap <leader>ak :<C-u>CocPrev<CR>
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <leader>rr :<C-u>CocRestart<CR>
+
+nmap <leader>dp <Plug>(coc-diagnostic-prev)
+nmap <leader>dn <Plug>(coc-diagnostic-next)
+nmap <leader>dd :<C-u>CocList diagnostics<CR>
+
+nmap <leader>rn <Plug>(coc-rename)
+
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+nnoremap <leader>/ :nohlsearch<CR>
+
+nmap <leader><leader> <Plug>(zoom-toggle)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-set timeoutlen=500
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-
 

@@ -8,6 +8,7 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i-ppa "3v1n0/libfprint-vfs0090"
     i-ppa "yubico/stable"
     i-ppa "mmstick76/alacritty"
+    i-ppa "plt/racket"
 
     # thinkpad specific
     i tlp
@@ -26,6 +27,7 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i-snap discord
 
     i alacritty
+    i racket
 
     # display/window management
     i arandr
@@ -37,13 +39,14 @@ if [[ $CONFIG_HOST == "comus" ]]; then
     i feh
     i scrot
     i lxappearance
+
+    INKDROP_URL="https://api.inkdrop.app/download/linux/deb"
+    if [ $(dpkg-count inkdrop) -eq 0 ]; then
+        curl -L $INKDROP_URL -o inkdrop.deb
+        sudo dpkg -i inkdrop.deb
+        rm inkdrop.deb
+    fi
 fi
-
-i-apt-key "https://dev.nodesource.com/gpgkey/nodesource.gpg.key" "nodesource"
-
-# ppas
-i-ppa "plt/racket"
-i-deb-src "https://deb.nodesource.com/node_12.x bionic main"
 
 # user utils
 i stow
@@ -68,9 +71,7 @@ i python3-dev
 i python3-pip
 
 # dev env
-i nodejs
 i cmake
-i racket
 i cloc
 
 FZF_DIR=~/.fzf
@@ -101,15 +102,9 @@ if [ $(dpkg-count ripgrep) -eq 0 ]; then
     rm $RIPGREP_DPKG
 fi
 
+mkdir -p ~/local/bin
 NVIM_PATH=~/local/bin/nvim
 if [ ! -f $NVIM_PATH ]; then
     curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage > $NVIM_PATH
     chmod +x $NVIM_PATH
-fi
-
-INKDROP_URL="https://api.inkdrop.app/download/linux/deb"
-if [ $(dpkg-count inkdrop) -eq 0 ]; then
-    curl -L $INKDROP_URL -o inkdrop.deb
-    sudo dpkg -i inkdrop.deb
-    rm inkdrop.deb
 fi

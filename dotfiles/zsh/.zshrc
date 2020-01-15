@@ -28,3 +28,12 @@ alias vim=nvim
 alias vimrc="vim ~/.vimrc"
 
 PATH=~/.npmlocal/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+ENV_PATH=~/local/env.sh
+if [ -f $ENV_PATH ]; then
+    source $ENV_PATH
+fi
