@@ -5,21 +5,26 @@ assert-has-config-host
 function dot() {
     stow -d dotfiles -t $HOME $1
 }
+function hdot() {
+    stow -d dotfiles/$CONFIG_HOST -t $HOME $1
+}
 
 if [[ $CONFIG_HOST == "comus" ]]; then
     dot git
 
-    dot comus/alacritty
-    dot comus/stalonetray
-    dot comus/xmobar
-    dot comus/xmonad
-    dot comus/xorg
+    hdot alacritty
+    hdot stalonetray
+    hdot xmobar
+    hdot xmonad
+    hdot xorg
 
-    dot comus/fonts
-    dot comus/gtk
+    hdot fonts
+    hdot gtk
 fi
 if [[ $CONFIG_HOST == "geras" ]]; then
     dot git
+
+    hdot iterm2
 fi
 
 dot tmux
