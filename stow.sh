@@ -7,18 +7,20 @@ function dot() {
 }
 
 if [[ $CONFIG_HOST == "comus" ]]; then
-    dot alacritty
     dot git
 
-    dot stalonetray
-    dot xmobar
-    dot xmonad
-    dot xorg
+    dot comus/alacritty
+    dot comus/stalonetray
+    dot comus/xmobar
+    dot comus/xmonad
+    dot comus/xorg
 
-    dot fonts
-    dot gtk
+    dot comus/fonts
+    dot comus/gtk
 fi
-# todo, work dotfiles
+if [[ $CONFIG_HOST == "geras" ]]; then
+    dot git
+fi
 
 dot tmux
 dot vim

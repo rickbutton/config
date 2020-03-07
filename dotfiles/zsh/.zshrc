@@ -25,7 +25,7 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 
 alias vim=nvim
-alias vimrc="vim ~/.vimrc"
+alias vimrc="nvim ~/.vimrc"
 
 alias ta="tmux attach -t"
 
