@@ -3,3 +3,5 @@
 .confighost
 .uuid
 bin/nvim.appimage
+dotfiles/vim/.config/coc
+dotfiles/vim/.config/configstore
