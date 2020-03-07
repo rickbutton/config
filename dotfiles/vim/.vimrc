@@ -126,10 +126,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gy <Plug>(coc-type-definition)
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)
 nnoremap <silent> <leader>gk :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -161,8 +157,16 @@ nmap <leader>af <Plug>(coc-fix-current)
 nmap <leader>aj :<C-u>CocNext<CR>
 nmap <leader>ak :<C-u>CocPrev<CR>
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+
+nmap <leader>rr :<C-u>CocRestart<CR>
+
+nmap <leader>dd :<C-u>CocList diagnostics<CR>
+nmap <leader>dn <Plug>(coc-diagnostic-next)
+nmap <leader>dp <Plug>(coc-diagnostic-prev)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 

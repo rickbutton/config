@@ -25,9 +25,12 @@ if [[ $CONFIG_HOST == "comus" ]]; then
 
     i-snap tusk
     i-snap discord
+    i-snap spotify
 
     i alacritty
     i racket
+    i mutt
+    i w3m
 
     # display/window management
     i arandr
@@ -82,6 +85,10 @@ if [ ! -d $OH_MY_ZSH_DIR ]; then
         rm ~/.zshrc
         mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
     fi
+fi
+
+if [ ! -d "~/.zplug" ]; then
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
 
 RIPGREP_VERSION="11.0.1"
