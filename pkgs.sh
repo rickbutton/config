@@ -101,15 +101,9 @@ if [ $(dpkg-count ripgrep) -eq 0 ]; then
     rm $RIPGREP_DPKG
 fi
 
+mkdir -p ~/local/bin
 NVIM_PATH=~/local/bin/nvim
 if [ ! -f $NVIM_PATH ]; then
     curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage > $NVIM_PATH
     chmod +x $NVIM_PATH
-fi
-
-INKDROP_URL="https://api.inkdrop.app/download/linux/deb"
-if [ $(dpkg-count inkdrop) -eq 0 ]; then
-    curl -L $INKDROP_URL -o inkdrop.deb
-    sudo dpkg -i inkdrop.deb
-    rm inkdrop.deb
 fi

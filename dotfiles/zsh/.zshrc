@@ -21,8 +21,8 @@ compinit
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
-export VISUAL="vim"
-export EDITOR="vim"
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 alias vim=nvim
 alias vimrc="vim ~/.vimrc"
@@ -68,3 +68,8 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+ENV_PATH=~/local/env.sh
+if [ -f $ENV_PATH ]; then
+    source $ENV_PATH
+fi
