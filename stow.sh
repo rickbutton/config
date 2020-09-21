@@ -11,6 +11,7 @@ function hdot() {
 
 if [[ $CONFIG_HOST == "comus" ]]; then
     dot git
+    dot zsh
 
     hdot alacritty
     hdot stalonetray
@@ -23,11 +24,10 @@ if [[ $CONFIG_HOST == "comus" ]]; then
 fi
 if [[ $CONFIG_HOST == "geras" ]]; then
     dot git
+    dot zsh
 
     hdot iterm2
 fi
 
 dot tmux
 dot vim
-dot zsh
-
