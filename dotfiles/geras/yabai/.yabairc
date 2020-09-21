@@ -1,0 +1,24 @@
+yabai -m config focus_follows_mouse autofocus
+yabai -m config window_topmost on
+yabai -m config window_shadow float
+
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.95
+
+yabai -m config status_bar off
+
+yabai -m config layout bsp
+
+yabai -m space 1 --label one
+yabai -m space 2 --label two
+yabai -m space 3 --label three
+yabai -m space 4 --label four
+yabai -m space 5 --label five
+yabai -m space 6 --label six
+yabai -m space 7 --label seven
+yabai -m space 8 --label eight
+yabai -m space 9 --label nine
+yabai -m space 10 --label ten
+
+skhd -r

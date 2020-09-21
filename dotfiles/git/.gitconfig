@@ -3,3 +3,18 @@
     email = rick@button.dev
 [push]
     default = simple
+[credential]
+	helper = osxkeychain
+
+[core]
+    pager = delta
+
+[diff]
+    colorMoved = default
+
+[delta]
+    syntax-theme = Monokai Extended
+    line-numbers = true
+
+[interactive]
+    diffFilter = delta --color-only

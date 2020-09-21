@@ -27,6 +27,8 @@ if [[ $CONFIG_HOST == "geras" ]]; then
     dot zsh
 
     hdot iterm2
+    hdot skhd
+    hdot yabai
 fi
 
 dot tmux

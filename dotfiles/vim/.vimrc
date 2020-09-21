@@ -20,9 +20,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dhruvasagar/vim-zoom'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+"Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'christoomey/vim-tmux-navigator'
+
+" Plug 'guns/vim-sexp'
+" Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 " sane defaults
@@ -99,6 +103,7 @@ colorscheme codedark
 " scheme
 autocmd BufNewFile,BufRead *.scm set syntax=scheme
 autocmd BufNewFile,BufRead *.sld set syntax=scheme
+autocmd FileType scheme setlocal commentstring=;%s
 
 " coc.vim
 set hidden
@@ -183,6 +188,13 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+nmap <leader>y  :<C-u>CocList -A --normal yank<CR>
+
+nmap <leader>f  <Plug>(coc-format-selected)
+
+nnoremap <leader>c  :<C-u>Commentary<CR>
+xnoremap <leader>c  :<C-u>'<,'>Commentary<CR>
+
 nnoremap <leader>/ :nohlsearch<CR>
 
 nmap <leader><leader> <Plug>(zoom-toggle)
@@ -190,3 +202,5 @@ nmap <leader><leader> <Plug>(zoom-toggle)
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nnoremap <leader>h :call HeaderToggle()<cr>
+
+let g:AutoPairsMultilineClose = 0
