@@ -27,6 +27,7 @@ call plug#end()
 
 " sane defaults
 syntax enable
+set backspace=indent,eol,start
 set tabstop=4
 set softtabstop=4
 set expandtab
@@ -149,6 +150,15 @@ function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
+function! HeaderToggle()
+    let filename = expand("%:t")
+    if filename =~ ".cpp"
+        execute "e %:r.h"
+    else
+        execute "e %:r.cpp"
+    endif
+endfunction
+
 nmap <leader>sp :<C-u>sp<CR>
 nmap <leader>vs :<C-u>vs<CR>
 
@@ -179,3 +189,4 @@ nmap <leader><leader> <Plug>(zoom-toggle)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+nnoremap <leader>h :call HeaderToggle()<cr>
