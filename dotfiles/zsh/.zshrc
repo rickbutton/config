@@ -1,3 +1,16 @@
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+bindkey -v
+bindkey -v '^?' backward-delete-char
+
+autoload -Uz compinit
+compinit
+zstyle :compinstall filename '~/.zshrc'
+
+VI_MODE_SET_CURSOR=true
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -16,14 +29,14 @@ export LD_LIBRARY_PATH=~/local/lib
 
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
-compinit
-
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 export VISUAL="nvim"
 export EDITOR="nvim"
+export LESS="-R"
 
+alias vi=nvim
 alias vim=nvim
 alias vimrc="nvim ~/.vimrc"
 

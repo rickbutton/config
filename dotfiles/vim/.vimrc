@@ -20,7 +20,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dhruvasagar/vim-zoom'
-"Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -202,5 +202,9 @@ nmap <leader><leader> <Plug>(zoom-toggle)
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nnoremap <leader>h :call HeaderToggle()<cr>
+nnoremap <leader>s :call CocAction("doHover")<cr>
 
 let g:AutoPairsMultilineClose = 0
+
+map <C-I> :py3file /opt/bb/share/bde-format/bde-format.py<cr>
+imap <C-I> :py3file /opt/bb/share/bde-format/bde-format.py<cr>
