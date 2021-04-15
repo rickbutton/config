@@ -205,6 +205,3 @@ nnoremap <leader>h :call HeaderToggle()<cr>
 nnoremap <leader>s :call CocAction("doHover")<cr>
 
 let g:AutoPairsMultilineClose = 0
-
-map <C-I> :py3file /opt/bb/share/bde-format/bde-format.py<cr>
-imap <C-I> :py3file /opt/bb/share/bde-format/bde-format.py<cr>
